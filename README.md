@@ -1,4 +1,8 @@
-# Vue Android App Template
+# Livehouse - ライブハウス
+
+音ゲー
+
+## Vue Android App Template
 
 Vue.js で Android ネイティブアプリを作るテンプレート
 
@@ -26,7 +30,6 @@ Android
 
 ```shell
 yarn install
-npm install #何故か必要だった
 ```
 
 ### ブラウザ上での動作確認

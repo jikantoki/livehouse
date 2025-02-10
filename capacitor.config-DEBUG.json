@@ -1,0 +1,9 @@
+{
+  "appId": "xyz.enoki.livehouse",
+  "appName": "Livehouse",
+  "webDir": "dist",
+  "server": {
+    "url": "http://192.168.11.108:19810",
+    "cleartext": true
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "name": "vue-android-app-template",
-  "description": "Vue.js で Android ネイティブアプリを作るテンプレート",
+  "name": "livehouse",
+  "description": "音ゲー",
   "version": "0.1.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:jikantoki/Vue-Android-APK-Template.git"
+    "url": "git+ssh://git@github.com:jikantoki/livehouse.git"
   },
   "author": {
     "name": "jikantoki",
@@ -25,6 +25,7 @@
     "@ionic/pwa-elements": "^3.3.0",
     "@mdi/font": "5.9.55",
     "core-js": "^3.8.3",
+    "pug": "^3.0.3",
     "pug-plain-loader": "^1.1.0",
     "roboto-fontface": "*",
     "sass": "^1.83.4",

@@ -1,4 +1,4 @@
-package xyz.enoki.vue.app;
+package xyz.enoki.livehouse;
 
 import com.getcapacitor.BridgeActivity;
 

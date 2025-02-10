@@ -14,7 +14,7 @@ export default {
   }),
 
   mounted() {
-    document.title = 'Vue APK'
+    document.title = 'Livehouse'
 
     App.addListener('backButton', () => {
       console.log('back!')

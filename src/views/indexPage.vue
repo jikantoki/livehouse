@@ -10,25 +10,25 @@
 <script>
 import HelloWorld from '/src/components/HelloWorld.vue'
 import { ScreenOrientation } from '@capacitor/screen-orientation'
+import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen'
 
 export default {
   components: {
     HelloWorld,
   },
   mounted() {
-    try {
-      ScreenOrientation.lock({
-        orientation: 'landscape-primary',
+    ScreenOrientation.lock({
+      orientation: 'landscape-primary',
+    })
+      .then(() => {
+        console.log('画面を固定しました')
       })
-        .then(() => {
-          console.log('画面を固定しました')
-        })
-        .catch((e) => {
-          console.log(e)
-        })
-    } catch (e) {
-      console.log(e)
-    }
+      .catch((e) => {
+        console.log(e)
+      })
+    AndroidFullScreen.isImmersiveModeSupported()
+      .then(() => AndroidFullScreen.immersiveMode())
+      .catch(console.log)
   },
 }
 </script>

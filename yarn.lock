@@ -19,6 +19,20 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
+"@awesome-cordova-plugins/android-full-screen@^6.14.0":
+  version "6.14.0"
+  resolved "https://registry.npmjs.org/@awesome-cordova-plugins/android-full-screen/-/android-full-screen-6.14.0.tgz"
+  integrity sha512-rKB5E9UyPeTRN5WDsL8kv7VJSdPUohyVg5bIRP565hHUiPqH4SawuEiS4YgUlpO5AWL2sgBYw6YUYgXQa6maBQ==
+  dependencies:
+    "@types/cordova" latest
+
+"@awesome-cordova-plugins/core@^6.0.1":
+  version "6.14.0"
+  resolved "https://registry.npmjs.org/@awesome-cordova-plugins/core/-/core-6.14.0.tgz"
+  integrity sha512-oJdmzR8DA/dyZnKlXBnjav0ZNTCacGMEWZOxnrnXqr3I7nVEK0Kr2EIJx7CtAIXxFCpEjQQTH7loFur86O3xpw==
+  dependencies:
+    "@types/cordova" latest
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.24.7", "@babel/code-frame@^7.25.9", "@babel/code-frame@^7.26.2":
   version "7.26.2"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.26.2.tgz"
@@ -1250,6 +1264,11 @@
   integrity sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==
   dependencies:
     "@types/node" "*"
+
+"@types/cordova@latest":
+  version "11.0.3"
+  resolved "https://registry.npmjs.org/@types/cordova/-/cordova-11.0.3.tgz"
+  integrity sha512-kyuRQ40/NWQVhqGIHq78Ehu2Bf9Mlg0LhmSmis6ZFJK7z933FRfYi8tHe/k/0fB+PGfCf95rJC6TO7dopaFvAg==
 
 "@types/eslint-scope@^3.7.7":
   version "3.7.7"
@@ -2711,6 +2730,11 @@ copy-webpack-plugin@^9.0.1:
     normalize-path "^3.0.0"
     schema-utils "^3.1.1"
     serialize-javascript "^6.0.0"
+
+cordova-plugin-fullscreen@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/cordova-plugin-fullscreen/-/cordova-plugin-fullscreen-1.3.0.tgz"
+  integrity sha512-K0SQMUyemQrezNlnfyHXQd8BgpwR3TS/fx456GueRCUdro5QG6tCzDDVBCVEGeKroDhXWmabAlhvO3gPoqw/tg==
 
 core-js-compat@^3.38.0, core-js-compat@^3.38.1, core-js-compat@^3.8.3:
   version "3.40.0"
@@ -5949,6 +5973,13 @@ run-parallel@^1.1.9:
   integrity sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==
   dependencies:
     queue-microtask "^1.2.2"
+
+"rxjs@^5.5.0 || ^6.5.0 || ^7.3.0":
+  version "7.8.1"
+  resolved "https://registry.npmjs.org/rxjs/-/rxjs-7.8.1.tgz"
+  integrity sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==
+  dependencies:
+    tslib "^2.1.0"
 
 safe-buffer@^5.1.0, safe-buffer@>=5.1.0, safe-buffer@~5.2.0, safe-buffer@5.2.1:
   version "5.2.1"

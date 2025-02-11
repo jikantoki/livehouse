@@ -4,7 +4,7 @@
     router-link(to='/play?demo=1')
       v-btn Play Demo
     p BGM by DOVA-SYNDROME &amp; Sheero Music
-  iframe(src="/BGM/title.mp3" allow="autoplay" style="display:none" loop)
+  iframe(src="/BGM/title.mp3?autoplay=1&loop=1" allow="autoplay" style="display:none" loop)
 </template>
 
 <script>

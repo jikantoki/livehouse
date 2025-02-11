@@ -21,6 +21,7 @@
     "@capacitor/android": "^7.0.1",
     "@capacitor/app": "^7.0.0",
     "@capacitor/core": "^7.0.1",
+    "@capacitor/screen-orientation": "^7.0.0",
     "@capacitor/toast": "^7.0.0",
     "@ionic/pwa-elements": "^3.3.0",
     "@mdi/font": "5.9.55",

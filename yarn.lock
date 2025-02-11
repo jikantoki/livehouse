@@ -908,6 +908,11 @@
   dependencies:
     tslib "^2.1.0"
 
+"@capacitor/screen-orientation@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/@capacitor/screen-orientation/-/screen-orientation-7.0.0.tgz"
+  integrity sha512-qCz79jeS0rzk+h68hSbyoargJWmPNKzv7oGxLVo2udIeO2JLSFAASrKGJ8JkRXtvcOxDd1HwU3LT9IDb7QQSkA==
+
 "@capacitor/toast@^7.0.0":
   version "7.0.0"
   resolved "https://registry.npmjs.org/@capacitor/toast/-/toast-7.0.0.tgz"

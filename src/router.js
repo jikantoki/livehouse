@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import indexPage from './views/indexPage.vue'
-import subPage from './views/subPage.vue'
+import playPage from './views/playPage.vue'
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -11,9 +11,9 @@ const router = createRouter({
       component: indexPage,
     },
     {
-      path: '/sub',
-      name: 'sub',
-      component: subPage,
+      path: '/play',
+      name: 'play',
+      component: playPage,
     },
   ],
 })

@@ -35,3 +35,12 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.v-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>

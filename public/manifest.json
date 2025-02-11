@@ -1,8 +1,8 @@
 {
-  "name": "Dopamine",
-  "short_name": "Dopamine",
-  "description": "合法的に能汁を出す、楽曲再生アプリ",
-  "theme_color": "#00aa66",
+  "name": "Livehouse",
+  "short_name": "Livehouse",
+  "description": "音ゲー",
+  "theme_color": "#ffffff",
   "background_color": "#000000",
   "display": "standalone",
   "start_url": "/",
@@ -43,18 +43,5 @@
       "sizes": "512x512"
     }
   ],
-  "screenshots": [
-    {
-      "src": "assets/screenshots/player-tab.jpg",
-      "sizes": "1080x2400",
-      "type": "image/jpg",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "assets/screenshots/files-tab.jpg",
-      "sizes": "1080x2400",
-      "type": "image/jpg",
-      "form_factor": "narrow"
-    }
-  ]
+  "screenshots": []
 }

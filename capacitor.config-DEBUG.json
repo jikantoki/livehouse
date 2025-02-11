@@ -1,5 +1,5 @@
 {
-  "appId": "xyz.enoki.livehouse",
+  "appId": "xyz.enoki.livehouse.debug",
   "appName": "Livehouse",
   "webDir": "dist",
   "server": {

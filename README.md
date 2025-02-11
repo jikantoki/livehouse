@@ -2,6 +2,10 @@
 
 音ゲー
 
+## Download
+
+[ここをクリックしてダウンロード](https://raw.githubusercontent.com/jikantoki/livehouse/refs/heads/master/livehouse.apk)
+
 ## Vue Android App Template
 
 Vue.js で Android ネイティブアプリを作るテンプレート

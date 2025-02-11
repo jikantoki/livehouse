@@ -4,18 +4,21 @@
     router-link(to='/play?demo=1')
       v-btn Play Demo
     p BGM by DOVA-SYNDROME &amp; Sheero Music
-  iframe(src="/BGM/title.mp3?autoplay=1&loop=1" allow="autoplay" style="display:none" loop)
+  iframe(
+    src="/BGM/title.mp3?autoplay=1&loop=1"
+    allow="autoplay"
+    style="display:none"
+    loop
+    ref="bgm"
+    )
 </template>
 
 <script>
-import HelloWorld from '/src/components/HelloWorld.vue'
 import { ScreenOrientation } from '@capacitor/screen-orientation'
 import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen'
 
 export default {
-  components: {
-    HelloWorld,
-  },
+  components: {},
   mounted() {
     ScreenOrientation.lock({
       orientation: 'landscape-primary',

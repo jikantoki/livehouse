@@ -6,8 +6,15 @@
 <script>
 import { App } from '@capacitor/app'
 import { Toast } from '@capacitor/toast'
+import { useTheme } from 'vuetify'
+let theme
+
 export default {
   name: 'App',
+  setup() {
+    theme = useTheme()
+    theme.global.name.value = 'dark'
+  },
 
   data: () => ({
     //

@@ -11,10 +11,10 @@
         table
           tbody
             tr.move-object-zone
-              th(ref="tapZone0") a
-              th(ref="tapZone1") b
-              th(ref="tapZone2") c
-              th(ref="tapZone3") d
+              th(ref="tapZone0")
+              th(ref="tapZone1")
+              th(ref="tapZone2")
+              th(ref="tapZone3")
     .object-buffer(style="display: none;")
       .tapObject-wrap.no-tap(ref="tapObject")
         tapObject(:timeLimit="objectTimeLimit")
@@ -166,6 +166,9 @@ export default {
               }
               if (this.$refs.playTable) {
                 this.$refs.playTable.append(node)
+                setTimeout(() => {
+                  node.remove()
+                }, this.objectTimeLimit)
               } else {
                 break
               }
@@ -266,6 +269,9 @@ export default {
                   }
                   if (this.$refs.playTable) {
                     this.$refs.playTable.append(node)
+                    setTimeout(() => {
+                      node.remove()
+                    }, this.objectTimeLimit)
                   }
                 }
                 ref.removeEventListener('touchstart', clickTableDefault)
@@ -295,6 +301,9 @@ export default {
                   }
                   if (this.$refs.playTable) {
                     this.$refs.playTable.append(node)
+                    setTimeout(() => {
+                      node.remove()
+                    }, this.objectTimeLimit)
                   } else {
                     break
                   }
@@ -315,32 +324,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.play-table-wrap {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  perspective: 400px;
-  width: max-content;
-  .play-table {
-    transform: rotateX(143deg);
-    transform-origin: bottom;
-    position: relative;
-    .touch-line {
-      position: fixed;
-      bottom: 6em;
-      width: 100%;
-      height: 1px;
-      background: black;
-      pointer-events: none;
-    }
-    table {
-      border-collapse: collapse;
-      tbody {
-        tr.move-object-zone > th {
-          border: solid 1px;
-          height: 140em;
-          width: 10em;
+main {
+  background: linear-gradient(#251375, #060711);
+  .play-table-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    perspective: 400px;
+    width: max-content;
+    .play-table {
+      transform: rotateX(143deg);
+      transform-origin: bottom;
+      position: relative;
+      .touch-line {
+        position: fixed;
+        bottom: 6em;
+        width: 100%;
+        height: 1px;
+        background: rgb(var(--v-border-color));
+        pointer-events: none;
+      }
+      table {
+        border-collapse: collapse;
+        tbody {
+          tr.move-object-zone > th {
+            border: solid 1px;
+            height: 140em;
+            width: 10em;
+          }
         }
       }
     }

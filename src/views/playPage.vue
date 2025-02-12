@@ -10,27 +10,22 @@
         table
           tbody
             tr.move-object-zone
-              th(@click="$refs.tapZone0.click()") a
-              th(@click="$refs.tapZone1.click()") b
-              th(@click="$refs.tapZone2.click()") c
-              th(@click="$refs.tapZone3.click()") d
-            tr.touch-zone
               th(ref="tapZone0") a
               th(ref="tapZone1") b
               th(ref="tapZone2") c
               th(ref="tapZone3") d
     .object-buffer(style="display: none;")
-      .tapObject-wrap(ref="tapObject")
+      .tapObject-wrap.no-tap(ref="tapObject")
         tapObject(:timeLimit="objectTimeLimit")
-      .ng-score-wrap(ref="NGScoreObject")
+      .ng-score-wrap.no-tap(ref="NGScoreObject")
         scoreObject(:state="0")
-      .perfect-score-wrap(ref="perfectScoreObject")
+      .perfect-score-wrap.no-tap(ref="perfectScoreObject")
         scoreObject(:state="1")
-      .great-score-wrap(ref="greatScoreObject")
+      .great-score-wrap.no-tap(ref="greatScoreObject")
         scoreObject(:state="2")
-      .early-score-wrap(ref="earlyScoreObject")
+      .early-score-wrap.no-tap(ref="earlyScoreObject")
         scoreObject(:state="3")
-      .later-score-wrap(ref="laterScoreObject")
+      .later-score-wrap.no-tap(ref="laterScoreObject")
         scoreObject(:state="4")
   audio(ref="audio")
 </template>
@@ -60,7 +55,7 @@ export default {
         },
       },
       /** タップするやつの前もって表示される時間 */
-      objectTimeLimit: 1500,
+      objectTimeLimit: 3000,
       /** 曲が終わったらTrueになる */
       musicEnded: false,
       /** OK判定を出す時間基準（前後ズレミリ秒） */
@@ -87,6 +82,7 @@ export default {
     },
   },
   async mounted() {
+    /** 外部ファイルから譜面情報を読み取り */
     const musicInfoJs = await fetch('/scores/demosong.js')
     const musicInfoText = await musicInfoJs.text()
     let musicInfo
@@ -96,11 +92,30 @@ export default {
     /** 一小節にかかる時間ミリ秒 */
     const measure = (60 / this.musicInfo.info.bpm) * 4 * 1000
     this.$refs.audio.src = this.musicInfo.address
+    this.$refs.audio.load()
     await this.eventPromisify(this.$refs.audio, 'canplaythrough')
     this.$refs.audio.addEventListener('ended', () => {
       this.musicEnded = true
     })
     this.$refs.audio.currentTime = 0
+
+    //クリック時のデフォルトの挙動設定
+    const defaultAudio = new Audio('/SE/click-table-default.mp3')
+    await this.eventPromisify(defaultAudio, 'canplaythrough')
+    const perfectAudio = new Audio('/SE/click-table-perfect.mp3')
+    await this.eventPromisify(perfectAudio, 'canplaythrough')
+    const clickTableDefault = () => {
+      const audio = defaultAudio.cloneNode()
+      audio.play()
+    }
+    const clickTablePerfect = () => {
+      const audio = perfectAudio.cloneNode()
+      audio.play()
+    }
+    this.$refs.tapZone0.addEventListener('touchstart', clickTableDefault)
+    this.$refs.tapZone1.addEventListener('touchstart', clickTableDefault)
+    this.$refs.tapZone2.addEventListener('touchstart', clickTableDefault)
+    this.$refs.tapZone3.addEventListener('touchstart', clickTableDefault)
 
     setTimeout(() => {
       this.$refs.audio.play()
@@ -206,18 +221,20 @@ export default {
                 const judgeStartTime = Date.now()
                 /** 完璧な当たり判定とのズレミリ秒 */
                 let score = null
+                /** ゲームに反映させるポイント */
+                let point = null
+                /** 当たり判定処理 */
                 const clicked = () => {
-                  if (score) {
+                  if (point) {
                     return
                   }
+                  clickTablePerfect()
                   const timeDelay = Date.now() - judgeStartTime
                   score = timeDelay - this.judgeTime / 2
-                  /** ゲームに反映させるポイント */
-                  const point = this.judgeTime / 2 - Math.abs(score)
+                  point = this.judgeTime / 2 - Math.abs(score)
                   this.point += point
 
                   let node
-                  console.log(point)
                   if (point > (this.judgeTime / 2) * 0.8) {
                     node = perfectScore.cloneNode(true)
                   } else if (point > (this.judgeTime / 2) * 0.5) {
@@ -247,12 +264,14 @@ export default {
                     this.$refs.playTable.append(node)
                   }
                 }
+                ref.removeEventListener('touchstart', clickTableDefault)
                 ref.addEventListener('click', clicked)
                 setTimeout(() => {
+                  ref.addEventListener('touchstart', clickTableDefault)
                   ref.removeEventListener('click', clicked)
                 }, this.judgeTime)
                 await this.sleep(oneTime)
-                if (!score) {
+                if (!point) {
                   const node = NGScore.cloneNode(true)
                   const div = node.getElementsByTagName('div')[0]
                   switch (tasc.keyboard) {
@@ -286,7 +305,7 @@ export default {
         })
       )
       //最後の数字は判定タイミング微調整用
-    }, this.musicInfo.info.timeSet + this.objectTimeLimit - this.judgeTime / 2 + 115)
+    }, this.musicInfo.info.timeSet + this.objectTimeLimit - this.judgeTime / 2 + 80)
   },
 }
 </script>
@@ -300,7 +319,7 @@ export default {
   perspective: 400px;
   width: max-content;
   .play-table {
-    transform: rotateX(100deg);
+    transform: rotateX(143deg);
     transform-origin: bottom;
     position: relative;
     table {
@@ -308,15 +327,14 @@ export default {
       tbody {
         tr.move-object-zone > th {
           border: solid 1px;
-          height: 70em;
-        }
-        tr.touch-zone > th {
+          height: 140em;
           width: 10em;
-          height: 6em;
-          border: solid 1px;
         }
       }
     }
   }
+}
+.no-tap {
+  pointer-events: none;
 }
 </style>

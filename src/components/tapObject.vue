@@ -23,7 +23,7 @@ export default {
 .object {
   animation-name: move-object;
   animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.3, 0, 1, 0.7);
+  animation-timing-function: linear;
   position: absolute;
   font-size: 10em;
   overflow: hidden;

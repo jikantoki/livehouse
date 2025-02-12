@@ -20,7 +20,7 @@ export default {
   mounted() {
     switch (this.state) {
       case 0:
-        this.text = 'NG!'
+        this.text = 'Miss'
         break
       case 1:
         this.text = 'Perfect!'
@@ -35,7 +35,7 @@ export default {
         this.text = '遅い！'
         break
       default:
-        this.text = 'NG!'
+        this.text = 'Miss'
         break
     }
   },

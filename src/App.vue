@@ -18,8 +18,8 @@ export default {
 
     App.addListener('backButton', () => {
       console.log('back!')
-      Toast.show({ text: 'Back!' })
-      this.$router.back()
+      Toast.show({ text: 'Back button is disabled' })
+      //this.$router.back()
     })
   },
 }

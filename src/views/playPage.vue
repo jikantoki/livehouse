@@ -1,10 +1,12 @@
 <template lang="pug">
   v-main
-    p {{ musicInfo.title }}
-    router-link(to='/')
-      v-btn back
-    .point
-      p 現在のポイント:{{ point }}
+    img.background(src="/assets/background.png")
+    .buttons
+      p {{ musicInfo.title }}
+      router-link(to='/')
+        v-btn back
+      .point
+        p 現在のポイント:{{ point }}
     .play-table-wrap
       .play-table(ref="playTable")
         .touch-line
@@ -130,16 +132,19 @@ export default {
       await Promise.all(
         this.musicInfo.levels.easy.map(async (levels, index) => {
           await this.sleep(measure * index)
+          console.log(levels)
           if (!this.$refs.playTable) {
             return
           }
-          if (!levels || !levels[0]) {
+          if (!levels || levels == []) {
             return
           }
           const length = levels.length
           const oneTime = measure / length
+          console.log(levels)
           for (const tasc of levels) {
             if (tasc) {
+              console.log(tasc)
               let node
               switch (tasc.action) {
                 case 'tap':
@@ -325,7 +330,26 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  background: linear-gradient(#251375, #060711);
+  background: rgba(0, 0, 0, 0.5);
+  background-image: url('/public/assets/background2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: darken;
+  .background {
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .buttons {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1em;
+    position: fixed;
+    z-index: 5;
+    top: 2em;
+    left: 2em;
+  }
   .play-table-wrap {
     position: fixed;
     bottom: 0;

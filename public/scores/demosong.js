@@ -32,14 +32,15 @@ musicInfo = {
           action: 'tap',
           keyboard: 1,
         },
-        null,
         {
           action: 'tap',
-          keyboard: 0,
+          keyboard: 1,
+        },
+        {
+          action: 'tap',
+          keyboard: 1,
         },
         null,
-      ],
-      [
         {
           action: 'tap',
           keyboard: 2,
@@ -47,21 +48,40 @@ musicInfo = {
         null,
         {
           action: 'tap',
+          keyboard: 2,
+        },
+        {
+          action: 'tap',
+          keyboard: 2,
+        },
+      ],
+      [
+        null,
+        {
+          action: 'tap',
+          keyboard: 0,
+        },
+        {
+          action: 'tap',
           keyboard: 0,
         },
         null,
-      ],
-      [
         {
           action: 'tap',
           keyboard: 3,
         },
-        null,
         {
           action: 'tap',
-          keyboard: 0,
+          keyboard: 3,
         },
-        null,
+        {
+          action: 'tap',
+          keyboard: 3,
+        },
+        {
+          action: 'tap',
+          keyboard: 3,
+        },
       ],
       [
         {
@@ -74,6 +94,50 @@ musicInfo = {
           keyboard: 0,
         },
         null,
+        {
+          action: 'tap',
+          keyboard: 1,
+        },
+        {
+          action: 'tap',
+          keyboard: 1,
+        },
+        {
+          action: 'tap',
+          keyboard: 1,
+        },
+        {
+          action: 'tap',
+          keyboard: 1,
+        },
+      ],
+      [
+        null,
+        {
+          action: 'tap',
+          keyboard: 0,
+        },
+        {
+          action: 'tap',
+          keyboard: 0,
+        },
+        null,
+        {
+          action: 'tap',
+          keyboard: 3,
+        },
+        {
+          action: 'tap',
+          keyboard: 3,
+        },
+        {
+          action: 'tap',
+          keyboard: 3,
+        },
+        {
+          action: 'tap',
+          keyboard: 3,
+        },
       ],
       [
         {
@@ -196,22 +260,34 @@ musicInfo = {
         null,
       ],
       [
+        null,
         {
           action: 'tap',
-          keyboard: 3,
+          keyboard: 1,
         },
-        null,
+        {
+          action: 'tap',
+          keyboard: 0,
+        },
+        {
+          action: 'tap',
+          keyboard: 0,
+        },
         {
           action: 'tap',
           keyboard: 0,
         },
         null,
+        {
+          action: 'tap',
+          keyboard: 1,
+        },
+        {
+          action: 'tap',
+          keyboard: 2,
+        },
       ],
       [
-        {
-          action: 'tap',
-          keyboard: 3,
-        },
         null,
         {
           action: 'tap',
@@ -226,6 +302,7 @@ musicInfo = {
           action: 'tap',
           keyboard: 3,
         },
+        null,
         null,
         null,
       ],

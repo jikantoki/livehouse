@@ -1,5 +1,6 @@
 <template lang="pug">
-  .object.tap(:style="`animation-duration: ${timeLimit}ms;`") ●
+  .object.tap(:style="`animation-duration: ${timeLimit}ms;`")
+    img(src="/assets/node.png")
 </template>
 
 <script>
@@ -25,8 +26,15 @@ export default {
   animation-fill-mode: both;
   animation-timing-function: linear;
   position: absolute;
-  font-size: 10em;
+  width: 25%;
+  aspect-ratio: 1;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 70%;
+  }
 }
 
 @keyframes move-object {

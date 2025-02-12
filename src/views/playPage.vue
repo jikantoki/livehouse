@@ -7,6 +7,7 @@
       p 現在のポイント:{{ point }}
     .play-table-wrap
       .play-table(ref="playTable")
+        .touch-line
         table
           tbody
             tr.move-object-zone
@@ -104,6 +105,8 @@ export default {
     await this.eventPromisify(defaultAudio, 'canplaythrough')
     const perfectAudio = new Audio('/SE/click-table-perfect.mp3')
     await this.eventPromisify(perfectAudio, 'canplaythrough')
+
+    /** 当たり判定時の音の設定 */
     const clickTableDefault = () => {
       const audio = defaultAudio.cloneNode()
       audio.play()
@@ -171,7 +174,8 @@ export default {
           }
         })
       )
-    }, this.musicInfo.info.timeSet)
+      //最後の数字は、タイミング調整用
+    }, this.musicInfo.info.timeSet + this.objectTimeLimit * 0.05)
 
     //譜面判定処理
     setTimeout(async () => {
@@ -305,7 +309,7 @@ export default {
         })
       )
       //最後の数字は判定タイミング微調整用
-    }, this.musicInfo.info.timeSet + this.objectTimeLimit - this.judgeTime / 2 + 80)
+    }, this.musicInfo.info.timeSet + this.objectTimeLimit - this.judgeTime / 2 + 0)
   },
 }
 </script>
@@ -322,6 +326,14 @@ export default {
     transform: rotateX(143deg);
     transform-origin: bottom;
     position: relative;
+    .touch-line {
+      position: fixed;
+      bottom: 6em;
+      width: 100%;
+      height: 1px;
+      background: black;
+      pointer-events: none;
+    }
     table {
       border-collapse: collapse;
       tbody {

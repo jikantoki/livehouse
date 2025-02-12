@@ -5,7 +5,7 @@ musicInfo = {
   info: {
     /** ミリ秒遅れて始まる */
     timeSet: 1496,
-    bpm: 176,
+    bpm: 175.5,
   },
   levels: {
     easy: [
